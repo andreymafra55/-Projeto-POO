@@ -42,6 +42,7 @@ public class PersistenciaArquivo {
 	public void buscarCliente() {
 		System.out.println(clientesCadastrados);
 	}
+	
 
 	public void salvarArquivo() {
 		try {

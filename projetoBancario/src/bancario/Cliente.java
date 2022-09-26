@@ -43,10 +43,28 @@ public class Cliente implements Serializable{
 	public void atualizarConta(Conta c) {
 		if(contas.contains(c)) {
 			int index = contas.indexOf(c);
-			contas.set(index, c);
+			contas.set(index,c);
 		}
 		else {
 			System.out.println("Conta nao cadastrada");
+		}
+	}
+	
+	public void sacar(Conta c,float valor) {
+		if(contas.contains(c))
+			c.realizarSaque(valor);
+		else
+			System.out.println("Conta nao cadastrada");
+	}
+	public void Depositar(Conta c,float valor) {
+		if(contas.contains(c))
+			c.realizarDeposito(valor);
+		else
+			System.out.println("Conta nao cadastrada");
+	}
+	public void verSaldo(Conta c) {
+		if (contas.contains(c)) {
+			System.out.println(c.saldo()); 
 		}
 	}
 

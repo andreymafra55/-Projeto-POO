@@ -30,8 +30,8 @@ public class Conta implements Serializable{
 	}
 	
 	public void realizarSaque(float quantia) {
-		if(status && this.saldo >= quantia)
-			this.saldo -= quantia;
+		if(status == true && this.saldo >= quantia)
+			this.saldo = this.saldo - quantia;
 		else
 			System.out.println("Não foi possível realizar o saque");
 		
@@ -46,7 +46,12 @@ public class Conta implements Serializable{
 		else
 			System.out.println("Não foi possível realizar a transferência");
 	}
-
+	
+	public String saldo() {
+		return "O saldo e:" + this.saldo;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Conta [numero=" + numero + ", saldo=" + saldo + ", dataAbertura=" + dataAbertura + ", status=" + status

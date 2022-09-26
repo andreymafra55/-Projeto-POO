@@ -62,29 +62,37 @@ public class Programa {
 							break ;
 						
 						case 4:
-							System.out.println("Insira o numero a sua conta");
+							System.out.println("Insira o numero a sua conta:");
 							numeroConta =sc.next();
 							Conta c3 = new Conta(numeroConta);
-							System.out.println("Insita o valor do deposito");
+							System.out.println("Insira o valor do deposito:");
 							float valor = sc.nextFloat();
-							c3.realizarDeposito(valor);
+							cliConsulta.Depositar(c3, valor);
 							cliConsulta.atualizarConta(c3);
 							pa.atualizarCliente(cliConsulta);
+							
+							
 							break;
 						
 						case 5:
-							System.out.println("Insira o numero a sua conta");
+							System.out.println("Insira o numero a sua conta:");
 							numeroConta =sc.next();
 							Conta c4 = new Conta(numeroConta);
-							System.out.println("Insita o valor do deposito");
-							float quantia = sc.nextFloat();
-							c4.realizarSaque(quantia);
+							System.out.println("Insira o valor do Saque:");
+							Float quantia = sc.nextFloat();
+							cliConsulta.sacar(c4, quantia);
 							cliConsulta.atualizarConta(c4);
 							pa.atualizarCliente(cliConsulta);
 							break;
 							
-							
 						case 6:
+							System.out.println("Insira o numero a sua conta:");
+							numeroConta =sc.next();
+							Conta c5 = new Conta(numeroConta);
+							cliConsulta.verSaldo(c5); 
+							break;
+							
+						case 7:
 							segundoSair = false;
 							System.out.println("\n\n\n");
 							break;
