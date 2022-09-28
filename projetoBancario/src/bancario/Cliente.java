@@ -50,18 +50,7 @@ public class Cliente implements Serializable{
 		}
 	}
 	
-	public void sacar(Conta c,float valor) {
-		if(contas.contains(c))
-			c.realizarSaque(valor);
-		else
-			System.out.println("Conta nao cadastrada");
-	}
-	public void Depositar(Conta c,float valor) {
-		if(contas.contains(c))
-			c.realizarDeposito(valor);
-		else
-			System.out.println("Conta nao cadastrada");
-	}
+
 	public void verSaldo(Conta c) {
 		if (contas.contains(c)) {
 			System.out.println(c.saldo()); 
@@ -93,5 +82,14 @@ public class Cliente implements Serializable{
 
 	public ArrayList<Conta> getContas() {
 		return contas;
+	}
+	
+	public Conta buscarConta(Conta c) {
+		if(contas.contains(c)) {
+			int index = contas.indexOf(c);
+			return contas.get(index);
+		}
+		else
+			return null;
 	}
 }

@@ -39,7 +39,7 @@ public class Programa {
 				if (cliConsulta != null) {
 					while (segundoSair) {
 						System.out.println(
-								"\n\n\n\nEscolha as opções para CONTA: \n1) Cadastrar uma conta;\n2) Remover uma conta;\n3) Listar contas;\n4) Realizar Deposito;\n5) Realizar saque;\n6) Sair;");
+								"\n\n\n\nEscolha as opções para CONTA: \n1) Cadastrar uma conta;\n2) Remover uma conta;\n3) Listar contas;\n4) Realizar Deposito;\n5) Realizar saque;\n7) Consultar Saldo;\n6) Sair;");
 						segundaOpcao = sc.nextInt();
 						switch (segundaOpcao) {
 						case 1:
@@ -62,34 +62,42 @@ public class Programa {
 							break ;
 						
 						case 4:
-							System.out.println("Insira o numero a sua conta:");
+							System.out.println("Insira o numero da sua conta:");
 							numeroConta =sc.next();
 							Conta c3 = new Conta(numeroConta);
 							System.out.println("Insira o valor do deposito:");
 							float valor = sc.nextFloat();
-							cliConsulta.Depositar(c3, valor);
-							cliConsulta.atualizarConta(c3);
-							pa.atualizarCliente(cliConsulta);
-							
+							if(cliConsulta.buscarConta(c3)!=null) {
+								c3 = cliConsulta.buscarConta(c3);
+								c3.realizarDeposito(valor);
+								cliConsulta.atualizarConta(c3);
+								pa.atualizarCliente(cliConsulta);
+							}
 							
 							break;
 						
 						case 5:
-							System.out.println("Insira o numero a sua conta:");
+							System.out.println("Insira o numero da sua conta:");
 							numeroConta =sc.next();
 							Conta c4 = new Conta(numeroConta);
 							System.out.println("Insira o valor do Saque:");
-							Float quantia = sc.nextFloat();
-							cliConsulta.sacar(c4, quantia);
-							cliConsulta.atualizarConta(c4);
-							pa.atualizarCliente(cliConsulta);
+							float quantia = sc.nextFloat();
+							if(cliConsulta.buscarConta(c4)!=null) {
+								c4 = cliConsulta.buscarConta(c4);
+								c4.realizarSaque(quantia);
+								cliConsulta.atualizarConta(c4);
+								pa.atualizarCliente(cliConsulta);
+							}
 							break;
 							
 						case 6:
-							System.out.println("Insira o numero a sua conta:");
-							numeroConta =sc.next();
+							System.out.println("Insira o numero da sua conta");
+							numeroConta = sc.next();
 							Conta c5 = new Conta(numeroConta);
-							cliConsulta.verSaldo(c5); 
+							if(cliConsulta.buscarConta(c5) != null) {
+								c5 = cliConsulta.buscarConta(c5);
+								System.out.println(c5.saldo()); 
+							}
 							break;
 							
 						case 7:

@@ -48,7 +48,7 @@ public class Conta implements Serializable{
 	}
 	
 	public String saldo() {
-		return "O saldo e:" + this.saldo;
+		return "O saldo e : " + this.saldo;
 	}
 	
 	
