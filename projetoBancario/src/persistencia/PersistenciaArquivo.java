@@ -26,6 +26,16 @@ public class PersistenciaArquivo {
 		}
 
 	}
+	public void RemoverCliente(Cliente c) {
+		if (clientesCadastrados.contains(c))
+			clientesCadastrados.remove(c);
+			
+		else {
+			System.err.println("Cliente nao cadastrado!");
+			salvarArquivo();
+		}
+
+	}
 	
 	public Cliente buscarClienteCPF(String cpf) {
 		Cliente temp = new Cliente(cpf);

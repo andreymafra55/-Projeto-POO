@@ -16,7 +16,7 @@ public class Programa {
 		int opcao = 0;
 
 		while (sair) {
-			System.out.println("Escolha uma opção:\n1) Cadastrar um cliente;\n2) Opcoes para conta;\n3) Listar Clientes;\n4) Sair");
+			System.out.println("Escolha uma opção:\n1) Cadastrar um cliente;\n2) Opcoes para conta;\n3) Remover Cliente;\n4) Listar Clientes;\n5) Sair");
 			opcao = sc.nextInt();
 			switch (opcao) {
 			case 1:
@@ -29,6 +29,7 @@ public class Programa {
 				Cliente cli = new Cliente(cpf, nome);
 				pa.cadastrarCliente(cli);
 				break;
+			
 			case 2:
 				System.out.println("Insira o CPF do cliente: ");
 				String cpfConsulta = "";
@@ -115,9 +116,18 @@ public class Programa {
 				break;
 				
 			case 3:
+				System.out.println("Insira o CPF do cliente: ");
+				cpfConsulta = sc.next();
+				Cliente cliConsulta2 = pa.buscarClienteCPF(cpfConsulta);
+				if(cliConsulta2 != null) {
+					pa.RemoverCliente(cliConsulta2);
+				}
+			break;
+			
+			case 4:
 				pa.buscarCliente();
 				break;
-			case 4:
+			case 5:
 				sair = false;
 				break;
 			default:
